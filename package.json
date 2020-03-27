@@ -1,6 +1,6 @@
 {
   "name": "@araki-packages/lib-template-node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "scripts": {
     "type-check": "tsc --noEmit",
@@ -11,8 +11,8 @@
     "build": "npm run build:types && npm run build:js && npm run build:web"
   },
   "main": "dist/rollup-plugin-babel.cjs.js",
-  "publishConfig": { 
-    "registry": "https://npm.pkg.github.com/" 
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "module": "dist/rollup-plugin-babel.esm.js",
   "types": "dist/types/index.d.ts",
