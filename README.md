@@ -12,11 +12,17 @@
   "main": "dist/rollup-plugin-babel.cjs.js",
   "module": "dist/rollup-plugin-babel.esm.js",
   "types": "dist/types/index.d.ts",
+  "llfe": {
+    "name": "RollupPluginBabel",
+    "file": "dist/rollup-plugin-babel.min.js"
+  },
   "author": {
     "name": "ArakiTkaki",
     "email": "arakitakaki.work@gmail.com"
   },
 ```
+
+※ IIFEに関してはCDNを設定している方のみに公開する方法です。
 
 ## npmへパッケージを公開する
 

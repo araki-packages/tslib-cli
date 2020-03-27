@@ -13,6 +13,10 @@
   "main": "dist/rollup-plugin-babel.cjs.js",
   "module": "dist/rollup-plugin-babel.esm.js",
   "types": "dist/types/index.d.ts",
+  "llfe": {
+    "name": "RollupPluginBabel",
+    "file": "dist/rollup-plugin-babel.min.js"
+  },
   "author": {
     "name": "ArakiTkaki",
     "email": "arakitakaki.work@gmail.com"
@@ -28,6 +32,7 @@
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-uglify": "^6.0.4",
     "typescript": "3.8.3"
   },
   "keywords": [],

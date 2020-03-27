@@ -1,13 +1,13 @@
 import Base from './rollup-base.config';
+import pkg from './package.json';
 
-const name = 'RollupTypeScriptBabel';
 export default {
   ...Base,
   external: [],
   output: [{
-    file: './dist/browser.js',
+    file: pkg.iife.file,
     format: 'iife',
-    name,
+    name: pkg.iife.name,
     globals: {},
   }],
 };
