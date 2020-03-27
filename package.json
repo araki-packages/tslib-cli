@@ -1,6 +1,6 @@
 {
   "name": "@araki-packages/lib-template-node",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "",
   "scripts": {
     "type-check": "tsc --noEmit",
@@ -31,5 +31,5 @@
     "typescript": "3.8.3"
   },
   "keywords": [],
-  "license": "ISC"
+  "license": "MIT"
 }

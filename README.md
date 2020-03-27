@@ -1,5 +1,23 @@
 # lib-template-node
 
+## 初回設定
+
+
+1. 下記の`package.json`の編集を行う。
+
+```json:package.json
+  "name": "@araki-packages/lib-template-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/rollup-plugin-babel.cjs.js",
+  "module": "dist/rollup-plugin-babel.esm.js",
+  "types": "dist/types/index.d.ts",
+  "author": {
+    "name": "ArakiTkaki",
+    "email": "arakitakaki.work@gmail.com"
+  },
+```
+
 ## npmへパッケージを公開する
 
 - [初めてのnpm パッケージ公開](https://qiita.com/TsutomuNakamura/items/f943e0490d509f128ae2)
