@@ -1,0 +1,35 @@
+{
+  "name": "boilerplate-rollup",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "rollup -c",
+    "build:web": "rollup -c rollup-browser.config.js",
+    "build": "npm run build:types && npm run build:js && npm run build:web"
+  },
+  "main": "dist/rollup-plugin-babel.cjs.js",
+  "module": "dist/rollup-plugin-babel.esm.js",
+  "types": "dist/types/index.d.ts",
+  "author": {
+    "name": "ArakiTkaki",
+    "email": "arakitakaki.work@gmail.com"
+  },
+  "devDependencies": {
+    "@babel/core": "7.8.7",
+    "@babel/plugin-proposal-class-properties": "7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "7.8.3",
+    "@babel/preset-env": "7.8.7",
+    "@babel/preset-typescript": "7.8.3",
+    "chalk": "^3.0.0",
+    "rollup": "2.0.2",
+    "rollup-plugin-babel": "4.4.0",
+    "rollup-plugin-commonjs": "10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "typescript": "3.8.3"
+  },
+  "keywords": [],
+  "license": "ISC"
+}

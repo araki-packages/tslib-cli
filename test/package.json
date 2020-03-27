@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "dependencies": {
+    "sandbox-package-manager": "file:../"
+  },
+  "devDependencies": {
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.0.1",
+    "ts-loader": "^6.2.2",
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.8.3",
+    "url-loader": "^4.0.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "name": "test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}
