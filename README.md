@@ -1,26 +1,57 @@
 # lib-template-node
 
-## Getting/Started
+## npmへパッケージを公開する
 
-```sh
-> npm install @araki-packages/lib-template-node --registry https://npm.pkg.github.com/
-
-# or
-
-> yarn add @araki-packages/lib-template-node --registry https://npm.pkg.github.com/
-```
-
-
+- [初めてのnpm パッケージ公開](https://qiita.com/TsutomuNakamura/items/f943e0490d509f128ae2)
 
 ## publish references
 
 ```sh
-> npm version major
-# v1.0.0 から v2.0.0 へ変更
-
-> npm version minor
-# v1.0.0 から v1.1.0 へ変更
-
->npm version patch
-# v1.0.0 から v1.0.1 へ変更
+> npm version major # メジャーバージョンのアップグレード
+> npm version minor # マイナーバージョンのアップグレード
+> npm version patch # パッチバージョンのアップグレード
 ```
+
+バージョニング管理に関しては下記を参照
+
+- [semverとnpm](http://64.hateblo.jp/entry/2014/04/25/045940)
+
+> majorは後方互換性のないAPIの変更時に
+> minorは後方互換性のある機能追加時に
+> patchは後方互換性のあるバグ修正時に
+
+## publish bat
+
+```sh
+# gitのコミットとlintを終わらせる
+> npm run build
+> npm version patch
+> npm publish
+```
+
+# README TEMPLATE
+
+## Install
+
+```sh
+> npm install {package_name}
+
+# or
+
+> yarn add {package_name}
+```
+
+## Usage
+
+example codes
+
+## Documentation
+
+document url
+
+## Licensw
+
+MIT
+
+Copyright (c) {hogehoge}
+
