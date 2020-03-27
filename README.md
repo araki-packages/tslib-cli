@@ -67,7 +67,7 @@ example codes
 
 document url
 
-## Licensw
+## Licens
 
 MIT
 
