@@ -1,15 +1,20 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-export const certainlyCreateFile = (filePath: string, data: any): Promise<NodeJS.ErrnoException | null> => {
-  return new Promise((resolve, reject) => {
-    fs.mkdir(path.dirname(filePath), (err) => {
-      if (err != null) reject(err);
-      fs.writeFile(filePath, data, (err) => {
-        if (err != null) reject(err);
-        resolve(null);
-      })
-    });
-  })
-  
+export const certainlyCreateFile = (filePath: string, data: any): {isComplete: boolean, message: string} => {
+  if (!fs.existsSync(path.dirname(filePath))) {
+    fs.mkdirSync(path.dirname(filePath), {recursive: true});
+  }
+
+  if (!fs.existsSync(filePath)) {
+    fs.writeFileSync(filePath, data);
+    return {
+      isComplete: false,
+      message: `exists ${filePath}`
+    }
+  }
+  return {
+    isComplete: true,
+    message: 'DONE',
+  }
 }

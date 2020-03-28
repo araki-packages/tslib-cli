@@ -5,20 +5,18 @@ import * as path from 'path';
 import { packageGenerator } from './generator/packageGenerator';
 import { ROOT_PATH, PROJECT_PATH } from './utils/device';
 import { certainlyCreateFile } from './utils/output';
+import * as chalk from 'chalk';
+import { COPY_FILES } from './constants/files';
 
 const main = async () => {
-  const copyTargetFiles = await grobby('', {
-    gitignore: true,
-    expandDirectories: ['*', '.*'],
-  });
-  copyTargetFiles
   const generatedPackage = await packageGenerator();
-  const copyFiles = copyTargetFiles.map((value) => {
+  
+  const copyFiles = COPY_FILES.map((value) => {
     const rootPath = getFullPath(value);
     if (value === 'package.json') {
       return {
         rootPath: rootPath,
-        projectPath: path.resolve(PROJECT_PATH.dir, PROJECT_PATH.base, value),
+        projectPath: path.resolve(__dirname, '..', PROJECT_PATH.dir, PROJECT_PATH.base, value),
         description: JSON.stringify(generatedPackage, null, 2),
       }
     }
@@ -31,13 +29,8 @@ const main = async () => {
   });
 
   copyFiles.forEach(({projectPath, description}) => {
-    certainlyCreateFile(projectPath, description)
-      .then(() => {
-        console.log('done');
-      })
-      .catch(() => {
-        console.error('fail');
-      });
+    const result = certainlyCreateFile(projectPath, description);
+    console.log( result.isComplete ? chalk.bgCyan(result.message) : chalk.bgRed(result.message))
   })
 }
 
