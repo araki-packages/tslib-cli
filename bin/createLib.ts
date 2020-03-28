@@ -6,19 +6,21 @@ import { ROOT_PATH, PROJECT_PATH } from './utils/device';
 import { certainlyCreateFile } from './utils/output';
 const chalk = require('chalk');
 import { COPY_FILES } from './constants/files';
-const sortPackageJson = require('sort-package-json');
+import { IS_DEBUG } from './constants/config';
 
 const main = async () => {
   const generatedPackage = await packageGenerator();
   
   const copyFiles = COPY_FILES.map((value) => {
     const rootPath = getFullPath(value);
-    const dir = path.resolve(PROJECT_PATH.dir, PROJECT_PATH.base, value);
+    const debugValue = IS_DEBUG ? `test/${value}` : value;
+    const dir = path.resolve(PROJECT_PATH.dir, PROJECT_PATH.base, debugValue);
+
     if (value === 'package.json') {
       return {
         rootPath: rootPath,
         projectPath: dir,
-        description: sortPackageJson(JSON.stringify(generatedPackage, null, 2)),
+        description: generatedPackage,
       }
     }
     

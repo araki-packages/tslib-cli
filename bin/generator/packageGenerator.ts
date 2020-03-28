@@ -2,6 +2,7 @@ import camelCase from 'camelcase';
 import * as path from 'path';
 import { PROJECT_PATH, packageJSON } from "../utils/device";
 import { readLineString } from '../utils/input';
+const sortPackageJson = require('sort-package-json');
 
 export const packageGenerator = async () => {
   const packageName = await readLineString('package name', PROJECT_PATH.base);
@@ -24,7 +25,7 @@ export const packageGenerator = async () => {
     }
   } : {};
 
-  const scriptsCommand = `
+  const scriptsCommand = JSON.parse(`{
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "build:types": "tsc --emitDeclarationOnly",
@@ -32,7 +33,7 @@ export const packageGenerator = async () => {
     "build:web": "rollup -c rollup-browser.config.js",
     "prebuild": "rimraf dist",
     "build": "npm run build:types && npm run build:js && npm run build:web"
-  `;
+  }`);
 
   ignoreFields.forEach((ignore) => {
     delete packageJSON[ignore];
@@ -51,7 +52,7 @@ export const packageGenerator = async () => {
     module: `dist/${defaultOutputPackage}.esm.js`,
     scripts: scriptsCommand,
   }, ...parsedRepo}
-  return JSON.stringify(parsedPackage);
+  return sortPackageJson(JSON.stringify(parsedPackage, null, 2));
 }
 
 

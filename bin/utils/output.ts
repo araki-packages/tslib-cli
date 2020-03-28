@@ -7,14 +7,15 @@ export const certainlyCreateFile = (filePath: string, data: any): {isComplete: b
   }
 
   if (!fs.existsSync(filePath)) {
-    fs.writeFileSync(filePath, data);
+    
+    fs.writeFile(filePath, data, () => {});
     return {
-      isComplete: false,
-      message: `EXISTS: ${filePath}`
+      isComplete: true,
+      message: `DONE: ${filePath}`,
     }
   }
   return {
-    isComplete: true,
-    message: `DONE: ${filePath}`,
+    isComplete: false,
+    message: `EXISTS: ${filePath}`
   }
 }
