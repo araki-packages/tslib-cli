@@ -10,11 +10,11 @@ export const certainlyCreateFile = (filePath: string, data: any): {isComplete: b
     fs.writeFileSync(filePath, data);
     return {
       isComplete: false,
-      message: `exists ${filePath}`
+      message: `EXISTS: ${filePath}`
     }
   }
   return {
     isComplete: true,
-    message: 'DONE',
+    message: `DONE: ${filePath}`,
   }
 }

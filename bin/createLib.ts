@@ -4,7 +4,7 @@ import * as path from 'path';
 import { packageGenerator } from './generator/packageGenerator';
 import { ROOT_PATH, PROJECT_PATH } from './utils/device';
 import { certainlyCreateFile } from './utils/output';
-import * as chalk from 'chalk';
+const chalk = require('chalk');
 import { COPY_FILES } from './constants/files';
 
 const main = async () => {
@@ -12,24 +12,25 @@ const main = async () => {
   
   const copyFiles = COPY_FILES.map((value) => {
     const rootPath = getFullPath(value);
+    const dir = path.resolve(PROJECT_PATH.dir, PROJECT_PATH.base, value);
     if (value === 'package.json') {
       return {
         rootPath: rootPath,
-        projectPath: path.resolve(__dirname, '..', PROJECT_PATH.dir, PROJECT_PATH.base, value),
+        projectPath: dir,
         description: JSON.stringify(generatedPackage, null, 2),
       }
     }
     
     return {
       rootPath: rootPath,
-      projectPath: path.resolve(PROJECT_PATH.dir, PROJECT_PATH.base, value),
+      projectPath: dir,
       description: fs.readFileSync(rootPath).toString(),
     }
   });
 
   copyFiles.forEach(({projectPath, description}) => {
     const result = certainlyCreateFile(projectPath, description);
-    console.log( result.isComplete ? chalk.bgCyan(result.message) : chalk.bgRed(result.message))
+    console.log( result.isComplete ? chalk.bgBlue(result.message) : chalk.bgRed(result.message))
   })
 }
 
