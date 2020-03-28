@@ -18,7 +18,7 @@
     "build": "npm run build:types && npm run build:js && npm run build:web",
     "start:bin": "ts-node bin/createLib.ts"
   },
-  "main": "dist/rollup-plugin-babel.cjs.js",
+  "main": "./dist/createLib.js",
   "module": "dist/rollup-plugin-babel.esm.js",
   "types": "dist/types/index.d.ts",
   "llfe": {
