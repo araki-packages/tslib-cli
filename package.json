@@ -21,7 +21,7 @@
   "main": "./dist/createLib.js",
   "module": "dist/rollup-plugin-babel.esm.js",
   "types": "dist/types/index.d.ts",
-  "llfe": {
+  "iife": {
     "name": "RollupPluginBabel",
     "file": "dist/rollup-plugin-babel.min.js"
   },
