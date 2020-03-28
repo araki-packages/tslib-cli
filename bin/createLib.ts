@@ -10,6 +10,7 @@ const main = async () => {
     gitignore: true,
     expandDirectories: ['*', '.*'],
   });
+  copyTargetFiles
   const generatedPackage = await packageGenerator();
   const copyFiles = copyTargetFiles.map((value) => {
     const rootPath = getFullPath(value);
@@ -30,7 +31,13 @@ const main = async () => {
   });
 
   copyFiles.forEach(({projectPath, description}) => {
-    certainlyCreateFile(projectPath, description);
+    certainlyCreateFile(projectPath, description)
+      .then(() => {
+        console.log('done');
+      })
+      .catch(() => {
+        console.error('fail');
+      });
   })
 }
 
