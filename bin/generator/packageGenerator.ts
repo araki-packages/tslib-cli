@@ -31,7 +31,7 @@ export const packageGenerator = async () => {
     "build:js": "rollup -c",
     "build:web": "rollup -c rollup-browser.config.js",
     "prebuild": "rimraf dist",
-    "build": "npm run build:types && npm run build:js && npm run build:web",
+    "build": "npm run build:types && npm run build:js && npm run build:web"
   `;
 
   ignoreFields.forEach((ignore) => {

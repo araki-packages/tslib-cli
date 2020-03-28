@@ -6,6 +6,7 @@ import { ROOT_PATH, PROJECT_PATH } from './utils/device';
 import { certainlyCreateFile } from './utils/output';
 const chalk = require('chalk');
 import { COPY_FILES } from './constants/files';
+const sortPackageJson = require('sort-package-json');
 
 const main = async () => {
   const generatedPackage = await packageGenerator();
@@ -17,7 +18,7 @@ const main = async () => {
       return {
         rootPath: rootPath,
         projectPath: dir,
-        description: JSON.stringify(generatedPackage, null, 2),
+        description: sortPackageJson(JSON.stringify(generatedPackage, null, 2)),
       }
     }
     
