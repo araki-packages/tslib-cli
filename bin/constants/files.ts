@@ -1,7 +1,6 @@
 
 export const COPY_FILES = [
   'README.md',
-  'package-lock.json',
   'package.json',
   'rollup-base.config.js',
   'rollup-browser.config.js',
@@ -10,5 +9,4 @@ export const COPY_FILES = [
   'src/index.ts',
   'src/sample.ts',
   'tsconfig.json',
-  'yarn.lock',
 ]
