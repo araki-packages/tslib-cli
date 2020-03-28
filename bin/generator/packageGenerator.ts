@@ -1,4 +1,4 @@
-import * as camelCase from 'camelcase';
+import camelCase from 'camelcase';
 import * as path from 'path';
 import { PROJECT_PATH, packageJSON } from "../utils/device";
 import { readLineString } from '../utils/input';
