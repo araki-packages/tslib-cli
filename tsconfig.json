@@ -10,8 +10,8 @@
     "noImplicitAny": true,
     "declarationDir": "dist/types",
     "declaration": true,
-    "target": "esnext",
-    "module": "esnext",
+    "target": "es5",
+    "module": "commonjs",
     "strict": true
   },
   "include": [
