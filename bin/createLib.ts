@@ -34,7 +34,6 @@ const main = async () => {
   })
 }
 
-
 const getFullPath = (dir: string) => {
   const inputRelativeDir = path.parse(dir);
   return path.resolve(ROOT_PATH.dir, inputRelativeDir.dir, inputRelativeDir.base);
