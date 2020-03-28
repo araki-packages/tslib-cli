@@ -50,7 +50,7 @@
 # gitのコミットとlintを終わらせる
 > npm run build
 > npm version patch
-> npm publish
+> npm publish --access public
 ```
 
 # README TEMPLATE
