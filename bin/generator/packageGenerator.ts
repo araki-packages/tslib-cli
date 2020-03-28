@@ -14,9 +14,13 @@ export const packageGenerator = async () => {
   const keywordsString = await readLineString('keywords', '');
   const author = await readLineString('author', '');
 
+ 
   const ignoreFields = [
     'dependencies',
     'scripts',
+    'deprecated',
+    'bundleDependencies',
+    ...Object.keys(packageJSON).filter(val => /\_/.test(val)),
   ];
   const parsedRepo = (gitRepository != '') ? {
     repository: {
