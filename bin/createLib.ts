@@ -15,7 +15,6 @@ const main = async () => {
   const generatedPackage = await packageGenerator();
   const copyFiles = copyTargetFiles.map((value) => {
     const rootPath = getFullPath(value);
-    console.log(value);
     if (value === 'package.json') {
       return {
         rootPath: rootPath,

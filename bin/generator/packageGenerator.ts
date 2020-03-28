@@ -35,7 +35,7 @@ export const packageGenerator = async () => {
   `;
 
   ignoreFields.forEach((ignore) => {
-    delete parsedPackage[ignore];
+    delete packageJSON[ignore];
   });
   const parsedPackage = {...packageJSON, ...{
     name: packageName,
