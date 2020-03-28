@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import * as grobby from 'globby';
 import * as fs from 'fs';
 import * as path from 'path';
 import { packageGenerator } from './generator/packageGenerator';
