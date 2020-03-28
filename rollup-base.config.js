@@ -21,3 +21,7 @@ export default {
     babel({ extensions, include: ['src/**/*']}),
   ]
 };
+
+// const nameList = ['name'];
+// const package = nameList.map((name) => `${name}: ${JSON.stringify(packageJSON['name'])}`).join(',');
+// return `{${package}}`
